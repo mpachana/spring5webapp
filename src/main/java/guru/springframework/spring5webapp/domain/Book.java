@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class book {
+public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,10 +16,10 @@ public class book {
             inverseJoinColumns = @JoinColumn(name = "author_id"))
     private Set<Author> authors;
 
-    public book() {
+    public Book() {
     }
 
-    public book(String title, String isbn, Set<Author> authors) {
+    public Book(String title, String isbn, Set<Author> authors) {
         this.title = title;
         this.isbn = isbn;
         this.authors = authors;
@@ -43,7 +43,7 @@ public class book {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        book book = (book) o;
+        Book book = (Book) o;
 
         return id != null ? id.equals(book.id) : book.id == null;
     }
